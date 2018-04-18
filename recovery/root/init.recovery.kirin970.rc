@@ -1,0 +1,10 @@
+on fs
+    start fixlinks
+
+on post-fs-data
+    stop oeminfo_nvm
+
+service fixlinks /sbin/fixlinks.sh
+    oneshot
+    disabled
+    seclabel u:r:recovery:s0
